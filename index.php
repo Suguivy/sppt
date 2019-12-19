@@ -97,7 +97,7 @@ foreach ($stats as $line) {
 print "\t</table>\n";
 print "\t<p>File: " .  $dburl . "</p>";
 print "\n<br/>\n";
-print "<input type=\"submit\">";
+print "<input type=\"submit\" class=\"button\">";
 print "</form>\n";
 ?>
 </body>

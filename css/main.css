@@ -9,6 +9,15 @@ body{
 	color: white;
 }
 
-input{
-	color: black;
+a{
+	color: orange;
+}
+	a:hover{
+		color: white;
+	}
+
+.button{
+	padding: 8px;
+	background-color: black;
+	border: 1px solid grey;
 }

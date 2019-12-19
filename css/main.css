@@ -1,0 +1,14 @@
+body{
+	background-color: black;
+}
+
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: roboto;
+	color: white;
+}
+
+input{
+	color: black;
+}

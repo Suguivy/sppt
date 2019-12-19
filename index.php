@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="css/main.css">
 <style>
-	*{
-		margin: 0px;
-		padding: 0px;
-		font-family: roboto;
-	}
 	body{
 		padding: 20px;
 	}
@@ -15,7 +11,7 @@
 		border-collapse: collapse;
 	}
 	table td, table th{
-		border: 1px solid black;
+		border: 1px solid grey;
 		width: 2em;
 		height: 2em;
 	}

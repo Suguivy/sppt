@@ -3,10 +3,6 @@
 <head>
 	<link rel="stylesheet" href="css/main.css">
 <style>
-	body{
-		padding: 20px;
-	}
-
 	table{
 		border-collapse: collapse;
 	}
@@ -52,7 +48,7 @@ else{
 	$date[actual] = true;
 }
 
-$dburl = "db/" . $date[year] . "/" . $date[mon] . ".csv";
+$dburl = "db/" . $date[year] . "/" . $date[mon] . ".db";
 $days = cal_days_in_month(CAL_GREGORIAN, $date[mon], $date[year]);
 
 foreach($list as $fields){
@@ -61,9 +57,7 @@ foreach($list as $fields){
 
 	/* Title */
 
-print "<h1>Productivity Matrix " . $date[month] . " " . $date[year] . "</h1>\n";
-print "<br/>\n";
-
+print "<h1 id='title'>Productivity Matrix " . $date[month] . " " . $date[year] . "</h1>\n";
 
 // Read the subjects file
 
@@ -81,14 +75,14 @@ else{
 print "\t<form method=\"post\" action=\"submit.php\" >\n";
 
 // Hidden value to tell submit.php the month we're talking about
-print "\t\t<input type=\"hidden\" name=\"year\" value=\"".$date[year]."\">";
+print "\t\t<input type=\"hidden\" name=\"date\" value=\"".$date[0]."\">";
 
 	/* Table generation */
 
 print "\t<table>\n\t\t<tr>\n";
 print "\t\t\t<th></th>\n";
 
-// Header with the numbers
+// Header
 for($i = 1; $i <= $days; $i++){
 	// Stay the day we're in if it is the actual month
 	if($i === $date[mday] and $date[actual]){
@@ -101,24 +95,22 @@ for($i = 1; $i <= $days; $i++){
 }
 print "\t\t</tr>\n";
 
-// Rest of the table
+// Body
 foreach ($stats as $line) {
-
-	// Print the subject name
+	
+	// Subject
 	print "\t\t<tr>\n\t\t\t<td>" . $line . "</td>\n";
 
-	// Print the cell for each day of the subject
+	// Day Values per subject
 	for($i = 1; $i <= $days; $i++){
-		print "\t\t\t<td><input name=\"day[".$i."][".$line."]\" type=\"text\" maxlength=\"1\"></td>\n";
+		print "\t\t\t<td><input name=\"day[".$line."][".$i."]\" type=\"text\" maxlength=\"1\"></td>\n";
 	}
 	print "\t\t</tr>\n";
 }
 print "\t</table>\n<br/>\n";
 
-print "\t<p>File: " .  $dburl . "</p>";
-print "\n<br/>\n";
-
 print "<input type=\"submit\" class=\"button\">";
 print "</form>\n";
 ?>
 </body>
+</html>
